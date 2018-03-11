@@ -17,6 +17,11 @@ export class CreateEventComponent {
 
   }
 
+  createEvent(eventForm) {
+    this.eventService.saveEvent(eventForm.value);
+    this.router.navigate(['events']);
+  }
+
   cancel() {
     this.router.navigate(['/events']);
   }
