@@ -10,6 +10,9 @@ import { EventService } from './event.service';
     form { margin-top: 10px; }
     label { display: block; }
     .form-group { margin-top: 5px; }
+    span{
+      display: inline-block;
+    }
   `]
 })
 export class CreateEventComponent {
