@@ -8,6 +8,7 @@ import { CreateEventComponent } from './create-event.component';
 import { EventService } from './event.service';
 import { appRoutes } from './routes';
 import { FormsModule } from '@angular/forms';
+import { MenuComponent } from './shared/menu/menu.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     EventsListComponent,
-    CreateEventComponent
+    CreateEventComponent,
+    MenuComponent
   ],
   providers: [ EventService ],
   bootstrap: [ AppComponent ]

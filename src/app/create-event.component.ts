@@ -12,6 +12,14 @@ import { EventService } from './event.service';
     .form-group { margin-top: 5px; }
     span{
       display: inline-block;
+      color: orange;
+      font-size: 12px;
+    }
+    .cancel-btn:hover{
+      cursor: pointer;
+    }
+    .submit-btn:hover{
+      cursor: pointer;
     }
   `]
 })
