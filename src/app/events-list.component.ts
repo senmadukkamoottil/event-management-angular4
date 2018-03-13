@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from './event.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-events-list',
@@ -10,8 +11,12 @@ import { EventService } from './event.service';
 })
 export class EventsListComponent {
   events: any;
-  constructor(private eventService: EventService) {
+  constructor(private eventService: EventService, private route: Router) {
     this.events = this.eventService.getEvents();
+  }
+
+  editEvent(id) {
+    this.route.navigate(['editevent', id]);
   }
 }
 

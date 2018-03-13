@@ -6,6 +6,7 @@
         <th>Date</th>      
         <th>Time</th>
         <th>Address</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -14,6 +15,7 @@
         <td>{{event.date}} </td>      
         <td>{{event.time}}</td>
         <td>{{event.location.address}}, {{event.location.city}}, {{event.location.country}}</td>
+        <td><button class="btn btn-warning" (click)="editEvent(event.id)">Edit</button></td>
       </tr>
     </tbody>
   </table>
