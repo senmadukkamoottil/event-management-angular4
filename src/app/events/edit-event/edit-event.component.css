@@ -1,0 +1,10 @@
+em{
+    color: red;
+    float: right;
+    padding-right: 101px;
+    font-size: 10px;
+}
+
+.error input {
+    background: #ffe5e5;
+}

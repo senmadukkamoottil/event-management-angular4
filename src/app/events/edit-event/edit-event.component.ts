@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { EventService } from '../../event.service';
 @Component({
   selector: 'app-edit-event',
@@ -13,37 +13,49 @@ export class EditEventComponent implements OnInit {
   eventForm: FormGroup;
   location: FormGroup;
 
+
+   name = new FormControl('sen', Validators.required);
+   date = new FormControl('1/1/2018', Validators.required);
+   time = new FormControl('12.00', Validators.required);
+
+   address = new FormControl('23425 se blk', Validators.required);
+   city = new FormControl('Seattle', Validators.required);
+   country = new FormControl('USA', Validators.required);
+
   constructor(private router: ActivatedRoute, private route: Router, private eventService: EventService) {
     this.event_id = this.router.snapshot.paramMap.get('id');
   }
 
   updateEvent(event) {
-     this.eventService.updateEvent(event.value);
-     this.route.navigate(['events']);
+    if (this.eventForm.valid) {
+      // this.eventService.updateEvent(event.value);
+      this.eventService.saveEvent(event.value);
+      this.route.navigate(['events']);
     // console.log(this.eventService.getEvent(this.event_id));
+    }
   }
 
   ngOnInit() {
-   const name = new FormControl('sen');
-   const date = new FormControl('1/1/2018');
-   const time = new FormControl('12.00');
 
-   const address = new FormControl('23425 se blk');
-   const city = new FormControl('Seattle');
-   const country = new FormControl('USA');
-
-
-   this.location = new FormGroup({
-     address: address,
-     city: city,
-     country: country
+    this.location = new FormGroup({
+     address: this.address,
+     city: this.city,
+     country: this.country
  });
 
    this.eventForm = new FormGroup({
-    name: name,
-    date: date,
-    time: time,
+    name: this.name,
+    date: this.date,
+    time: this.time,
     location: this.location
    });
+  }
+
+  validateEventName(): boolean {
+    if (this.name.invalid) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

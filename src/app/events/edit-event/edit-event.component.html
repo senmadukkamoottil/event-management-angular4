@@ -1,30 +1,38 @@
 <form [formGroup]="eventForm" (ngSubmit)="updateEvent(eventForm)">
-  <div class="form-group">
+  <div class="form-group" [ngClass]="{'error': validateEventName()}">
     <label for="name">Event</label>
+    <em *ngIf = "validateEventName()">*Required</em>
     <input class="form-control" type="text" formControlName="name" placeholder="Event name">
   </div>
   <div class="form-group">
     <label for="date">Date </label>
+    <em *ngIf="eventForm.controls.date?.invalid">*Required</em>
     <input class="form-control" type="text" formControlName="date" placeholder="Date">
   </div>
   <div class="form-group">
     <label for="time">Time</label>
+    <em *ngIf="eventForm.controls.time?.invalid">*Required</em>
     <input class="form-control" type="text" formControlName="time" name="time" id="time" placeholder="Time">
   </div>
   <div formGroupName="location">
     <div class="form-group">
       <label for="address">Address</label>
+      <em *ngIf="location.controls.address?.invalid">*Required</em>
       <input class="form-control" type="text" formControlName="address" name="address" id="address" placeholder="Address">
     </div>
     <div class="form-group">
       <label for="city">City</label>
+      <em *ngIf="location.controls.city?.invalid">*Required</em>
       <input type="text" id="city" name="city" formControlName="city" placeholder="City">
     </div>
-    <div class="form-control">
+    <div class="form-group">
       <label for="country">Country</label>
+      <em *ngIf="location.controls.country?.invalid">*Required</em>
       <input type="text" id="country" name="country" placeholder="Country" formControlName="country">
     </div>
   </div>
+  <div class="form-control">
   <button id="btnSave" type="submit" class="btn btn-success">Save</button>
   <button id="btnCancel" type="button" class="btn btn-default">Cancel</button>
+</div>
 </form>
