@@ -6,7 +6,8 @@ export class EventService {
     {id: 1, name: 'Angular Connect', date: '9/26/2036', time: '10am',
       location: {address: '1 London Rd', city: 'London', country: 'England'},
       session: [
-        {id: 1, name: 'Using Angular4 Pipes', presenter: 'Joseph Peter', level: 'intermediate'}
+        {id: 1, name: 'Using Angular4 Pipes', presenter: 'Joseph Peter', level: 'Intermediate'},
+        {id: 2, name: 'Using Angular4 template', presenter: 'Joseph Peter', level: 'Beginner'}
       ]
     },
     {id: 2, name: 'ng-nl', date: '4/15/2037', time: '9am',

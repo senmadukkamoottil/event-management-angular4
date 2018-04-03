@@ -20,6 +20,5 @@ export class EventComponent implements OnInit {
     if (this.event) {
        this.event = this.event[0];
     }
-    console.log(this.event);
   }
 }
