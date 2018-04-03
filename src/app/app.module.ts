@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from './shared/menu/menu.component';
 import { EditEventComponent } from './events/edit-event/edit-event.component';
+import { EventComponent } from './events/event/event.component';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { EditEventComponent } from './events/edit-event/edit-event.component';
     EventsListComponent,
     CreateEventComponent,
     MenuComponent,
-    EditEventComponent
+    EditEventComponent,
+    EventComponent
   ],
   providers: [ EventService ],
   bootstrap: [ AppComponent ]

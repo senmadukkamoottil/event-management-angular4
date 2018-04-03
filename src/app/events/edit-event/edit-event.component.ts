@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { EventService } from '../../event.service';
+import { Observable } from 'rxjs/observable';
+
 @Component({
   selector: 'app-edit-event',
   templateUrl: './edit-event.component.html',
@@ -13,8 +15,11 @@ export class EditEventComponent implements OnInit {
   eventForm: FormGroup;
   location: FormGroup;
 
+  eventToEdit = {
+    name: 'Sen Madukkamoottil',
+  };
 
-   name = new FormControl('sen', Validators.required);
+   name = new FormControl(this.eventToEdit.name, Validators.required);
    date = new FormControl('1/1/2018', Validators.required);
    time = new FormControl('12.00', Validators.required);
 
@@ -27,6 +32,7 @@ export class EditEventComponent implements OnInit {
   }
 
   updateEvent(event) {
+
     if (this.eventForm.valid) {
       // this.eventService.updateEvent(event.value);
       this.eventService.saveEvent(event.value);
@@ -36,6 +42,14 @@ export class EditEventComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    // console.log(this.eventService.getEvent(1).subscribe( data => console.log(data) ));
+    this.eventService.EVENTS.forEach(function(event) {
+      if (event.id === 2) {
+        // this.eventToEdit.date = event.date;
+      }
+    });
+
 
     this.location = new FormGroup({
      address: this.address,
