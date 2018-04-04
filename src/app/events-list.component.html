@@ -6,7 +6,10 @@
         <th>Date</th>      
         <th>Time</th>
         <th>Address</th>
-        <th></th>
+        <th>
+          <button (click)="sortEventList(sortType)" *ngIf="sortType === 'Ascending'" >A-Z</button>
+          <button (click)="sortEventList(sortType)" *ngIf="sortType === 'Descending'" >Z-A</button>
+        </th>
       </tr>
     </thead>
     <tbody>
