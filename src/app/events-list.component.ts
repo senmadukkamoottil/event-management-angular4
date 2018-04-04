@@ -24,31 +24,29 @@ export class EventsListComponent implements OnChanges {
     console.log('here');
   }
 
-  // Todo Sort function
   sortEventList(sortOrder) {
     if (this.sortType === 'Ascending' ) {
-      this.events.sort(this.sortFunction1);
+      this.events.sort(this.aSort);
     } else {
-      this.events.sort(this.sortFunction2);
+      this.events.sort(this.dSort);
     }
     this.sortType = (sortOrder === 'Ascending' ? 'Descending' : 'Ascending');
   }
 
-  sortFunction1(e1: any, e2: any): number {
-    if (e1.name > e2.name) {
+  aSort(e1, e2) {
+    if (e1.name.toUpperCase() > e2.name.toUpperCase()) {
       return 1;
-    } else if ( e1.name === e2.name) {
+    } else if ( e1.name.toUpperCase() === e2.name.toUpperCase()) {
       return 0;
     } else {
       return -1;
     }
   }
 
-
-sortFunction2(e1: any, e2: any): number {
-  if (e1.name < e2.name) {
+dSort(e1, e2) {
+  if (e1.name.toUpperCase() < e2.name.toUpperCase()) {
     return 1;
-  } else if ( e1.name === e2.name) {
+  } else if ( e1.name.toUpperCase() === e2.name.toUpperCase()) {
     return 0;
   } else {
     return -1;
