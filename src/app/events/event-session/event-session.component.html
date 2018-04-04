@@ -1,6 +1,6 @@
 <div>Event sessions</div>
 <div *ngFor="let session of eventSession">
   <div>
-    {{ session.name }} , {{ session.presenter }}, {{ session.level }}
+    {{ session.name }} , {{ session.presenter }}, {{ session.level }} {{ session?.duration | duration}}
   </div>
 </div>

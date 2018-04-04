@@ -13,6 +13,7 @@ import { MenuComponent } from './shared/menu/menu.component';
 import { EditEventComponent } from './events/edit-event/edit-event.component';
 import { EventComponent } from './events/event/event.component';
 import { EventSessionComponent } from './events/event-session/event-session.component';
+import { DurationPipe } from './shared/duration.pipe';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { EventSessionComponent } from './events/event-session/event-session.comp
     MenuComponent,
     EditEventComponent,
     EventComponent,
-    EventSessionComponent
+    EventSessionComponent,
+    DurationPipe
   ],
   providers: [ EventService ],
   bootstrap: [ AppComponent ]
